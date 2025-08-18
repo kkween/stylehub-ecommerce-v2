@@ -45,11 +45,13 @@ npm install
 
 The backend is already configured with your MongoDB connection string in `backend/.env`:
 ```
-MONGODB_URI=mongodb+srv://kween:kween123@customers.ervuep9.mongodb.net/clothing_store?retryWrites=true&w=majority
-JWT_SECRET=your_super_secret_jwt_key_here_change_in_production
+MONGODB_URI=your_mongodb_uri_here
+JWT_SECRET=your_jwt_secret_here
 PORT=5000
 NODE_ENV=development
 ```
+
+> **Note:** For security, your real `.env` file is not included in the repository. Use `.env.example` to share required environment variable names and formats, but never commit secrets.
 
 ### 3. Start the Application
 
