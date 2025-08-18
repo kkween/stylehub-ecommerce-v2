@@ -36,7 +36,12 @@ const Header = ({ user, setUser, cartItemCount }) => {
                 </span>
               )}
             </Link>
-
+            <Link 
+              to="/shop" 
+              className="bg-orange-500 hover:bg-orange-600 text-white px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              Shop Now
+            </Link>
             {user ? (
               <div className="flex items-center space-x-2 sm:space-x-4">
                 <Link to="/profile" className="hidden sm:block text-gray-600 hover:text-gray-800 px-3 py-2 text-sm font-medium transition-colors">
@@ -195,7 +200,7 @@ const HeroCarousel = ({ setSidebarOpen }) => {
   
   const slides = [
     {
-      image: 'https://picsum.photos/1920/600?random=1',
+      image: '/hero1.jpg',
       title: 'Winter Collection 2025',
       subtitle: 'Embrace the Season in Style',
       description: 'Discover our premium winter collection featuring the latest trends and timeless classics.',
@@ -203,7 +208,7 @@ const HeroCarousel = ({ setSidebarOpen }) => {
       buttonLink: '/shop?category=winter'
     },
     {
-      image: 'https://picsum.photos/1920/600?random=2',
+      image: '/hero2.jpg',
       title: 'New Arrivals',
       subtitle: 'Fresh Fashion Forward',
       description: 'Check out our newest arrivals that blend comfort with contemporary design.',
@@ -211,7 +216,7 @@ const HeroCarousel = ({ setSidebarOpen }) => {
       buttonLink: '/shop'
     },
     {
-      image: 'https://picsum.photos/1920/600?random=3',
+      image: '/hero3.jpg',
       title: 'Special Offers',
       subtitle: 'Up to 50% Off',
       description: 'Limited time deals on selected items. Upgrade your wardrobe for less.',
@@ -260,28 +265,8 @@ const HeroCarousel = ({ setSidebarOpen }) => {
             alt={slide.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-purple-900 from-10% via-blue-900 via-50% to-indigo-900 to-90% bg-opacity-30"></div>
           
-          {/* Content */}
-          <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
-            <div className="text-center text-white max-w-4xl">
-              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-2 sm:mb-4 leading-tight">
-                {slide.title}
-              </h1>
-              <h2 className="text-lg sm:text-2xl lg:text-3xl mb-4 sm:mb-6 text-yellow-300 font-semibold">
-                {slide.subtitle}
-              </h2>
-              <p className="text-base sm:text-xl lg:text-2xl mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto">
-                {slide.description}
-              </p>
-              <Link 
-                to={slide.buttonLink}
-                className="inline-block bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                {slide.buttonText}
-              </Link>
-            </div>
-          </div>
+          {/* Content removed: no button in hero section */}
         </div>
       ))}
 
@@ -377,11 +362,12 @@ const Shop = ({ addToCart, sidebarOpen, setSidebarOpen }) => {
           {products.map((product) => (
             <div key={product._id} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group h-fit">
               <div className="bg-gray-200 overflow-hidden relative">
-                <img 
-                  src={`https://picsum.photos/400/400?random=${product._id}`}
-                  alt={product.name} 
-                  className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                 <img 
+                   src={`https://picsum.photos/400/400?random=${product._id}`}
+                   alt={product.name} 
+                   loading="lazy"
+                   className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
+                 />
                 <div className="absolute top-1 right-1 sm:top-2 sm:right-2">
                   <span className="bg-indigo-600 text-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full text-xs font-medium">
                     {product.category}
@@ -414,6 +400,7 @@ const Shop = ({ addToCart, sidebarOpen, setSidebarOpen }) => {
                 <img 
                   src={`https://picsum.photos/400/400?random=static${i+1}`}
                   alt={`Static ${i+1}`}
+                  loading="lazy"
                   className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -441,6 +428,7 @@ const Shop = ({ addToCart, sidebarOpen, setSidebarOpen }) => {
                 <img 
                   src={`https://picsum.photos/400/400?random=extra${i+1}`}
                   alt={`Extra Static ${i+1}`}
+                  loading="lazy"
                   className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
