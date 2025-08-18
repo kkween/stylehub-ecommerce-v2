@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ChangePassword from "./ChangePassword";
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
@@ -136,7 +137,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => (
     )}
     
     {/* Sidebar */}
-    <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform ${
+    <aside className={`fixed left-0 z-50 w-64 h-[100vh] bg-white shadow-lg transform ${
       isOpen ? 'translate-x-0' : '-translate-x-full'
     } lg:translate-x-0 transition-transform duration-300 ease-in-out border-r border-gray-200 lg:static lg:z-auto`}>
       <div className="p-6">
@@ -235,7 +236,7 @@ const HeroCarousel = ({ setSidebarOpen }) => {
   };
 
   return (
-    <section className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden">
+  <section className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden">
       {/* Mobile Sidebar Toggle Button */}
       <button
         onClick={() => setSidebarOpen(true)}
@@ -407,6 +408,60 @@ const Shop = ({ addToCart, sidebarOpen, setSidebarOpen }) => {
               </div>
             </div>
           ))}
+          {[...Array(12)].map((_, i) => (
+            <div key={`static-card-${i}`} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group h-fit">
+              <div className="bg-gray-200 overflow-hidden relative">
+                <img 
+                  src={`https://picsum.photos/400/400?random=static${i+1}`}
+                  alt={`Static ${i+1}`}
+                  className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-2 sm:p-3">
+                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Sample Card {i+1}</h3>
+                <p className="text-gray-600 text-xs mb-2 line-clamp-1">This is a sample static card.</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm sm:text-lg font-bold text-indigo-600">$19.99</span>
+                  <button 
+                    onClick={() => addToCart({ _id: `static-card-${i}`, name: `Sample Card ${i+1}`, price: 19.99 })} 
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-medium transition-colors flex items-center space-x-1 group"
+                  >
+                    <svg className="w-3 h-3 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h10" />
+                    </svg>
+                    <span className="hidden lg:inline">Add</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+          {[...Array(6)].map((_, i) => (
+            <div key={`extra-static-card-${i}`} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group h-fit">
+              <div className="bg-gray-200 overflow-hidden relative">
+                <img 
+                  src={`https://picsum.photos/400/400?random=extra${i+1}`}
+                  alt={`Extra Static ${i+1}`}
+                  className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-2 sm:p-3">
+                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Extra Card {i+1}</h3>
+                <p className="text-gray-600 text-xs mb-2 line-clamp-1">This is an extra static card.</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm sm:text-lg font-bold text-indigo-600">$19.99</span>
+                  <button 
+                    onClick={() => addToCart({ _id: `extra-static-card-${i}`, name: `Extra Card ${i+1}`, price: 19.99 })} 
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-medium transition-colors flex items-center space-x-1 group"
+                  >
+                    <svg className="w-3 h-3 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h10" />
+                    </svg>
+                    <span className="hidden lg:inline">Add</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         {products.length === 0 && !loading && (
@@ -454,6 +509,21 @@ const Cart = ({ cart, setCart, user }) => {
   const updateQuantity = (index, newQuantity) => {
     if (newQuantity <= 0) {
       removeFromCart(index);
+                            {[...Array(6)].map((_, i) => (
+                              <div key={`extra-static-card-${i}`} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group h-fit">
+                                <div className="bg-gray-200 overflow-hidden relative">
+                                  <img 
+                                    src={`https://picsum.photos/400/400?random=extra${i+1}`}
+                                    alt={`Extra Static ${i+1}`}
+                                    className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
+                                  />
+                                </div>
+                                <div className="p-2 sm:p-3">
+                                  <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Extra Card {i+1}</h3>
+                                  <p className="text-gray-600 text-xs mb-2 line-clamp-1">This is an extra static card.</p>
+                                </div>
+                              </div>
+                            ))}
       return;
     }
     const updatedCart = [...cart];
@@ -969,7 +1039,7 @@ const Profile = ({ user, orders }) => (
       </div>
     </div>
 
-    <div className="bg-white rounded-xl shadow-md p-6">
+    <div className="bg-white rounded-xl shadow-md p-6 mb-8">
       <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
         <svg className="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -1022,6 +1092,7 @@ const Profile = ({ user, orders }) => (
         </div>
       )}
     </div>
+    <ChangePassword />
   </div>
 );
 
@@ -1470,10 +1541,14 @@ const App = () => {
               path="/"
               element={
                 <div className="flex w-full overflow-hidden">
-                  <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
-                  <div className="flex-1 lg:ml-0">
-                    <HeroCarousel setSidebarOpen={setSidebarOpen} />
-                    <Shop addToCart={addToCart} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+                  <div className="flex w-full min-h-[calc(100vh-4rem)]">{/* 4rem = header + navbar height */}
+                    <div className="flex flex-col h-full">
+                      <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
+                    </div>
+                    <div className="flex-1 lg:ml-0 flex flex-col">
+                      <HeroCarousel setSidebarOpen={setSidebarOpen} />
+                      <Shop addToCart={addToCart} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+                    </div>
                   </div>
                 </div>
               }
