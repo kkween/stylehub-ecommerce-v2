@@ -189,6 +189,7 @@ app.get('/api/products', async (req, res) => {
     const { category } = req.query;
     const filter = category ? { category } : {};
     const products = await Product.find(filter);
+
     res.json(products);
   } catch (err) {
     console.error('Products fetch error:', err);
@@ -317,3 +318,6 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   seedData();
 });
+
+// Import admin routes
+const adminRoutes = require('./admin/routes/adminRoutes');
