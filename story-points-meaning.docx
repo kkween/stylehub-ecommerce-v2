@@ -1,0 +1,18 @@
+What Do Story Point Numbers Mean?
+
+Story points are a way for Agile teams to estimate the relative effort, complexity, and time required to complete a backlog item. They do not represent exact hours or days, but help teams compare tasks and plan sprints.
+
+Typical meaning of story point numbers:
+
+| Story Points | Meaning                                                      |
+|--------------|-------------------------------------------------------------|
+| 1            | Very easy, quick, or simple task                            |
+| 2–3          | Moderate effort, some complexity, takes more time than a 1  |
+| 5            | Large or complex task, requires significant work            |
+| 8, 13, etc.  | Very large, may need to be broken down                      |
+
+- A 3-point task should take about three times the effort of a 1-point task.
+- Story points help teams estimate, plan, and track progress in sprints.
+- The numbers are relative and should be consistent across your backlog.
+
+Use this table as a reference when assigning story points in Jira.

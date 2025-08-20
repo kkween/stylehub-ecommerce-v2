@@ -1,0 +1,18 @@
+Agile Scrum Getting Started Notes
+
+1. Start Small: Don’t try to perfect everything. Use the templates provided and keep your process lightweight.
+2. Learn by Doing: Create your Jira project, add your backlog items, and invite your team. Try running a short (1-week) sprint to get familiar.
+3. Use Templates: Use the onboarding checklist to set up your team, the sprint planning template to organize your first sprint, and the standup template for daily check-ins.
+4. Ask for Feedback: After your first sprint, ask your team what worked and what didn’t. Adjust your process based on their input.
+5. Focus on Communication: Keep everyone informed and encourage open discussion about progress and blockers.
+6. Don’t Worry About Mistakes: Agile is about continuous improvement. Mistakes are normal and help you learn.
+7. Use Jira’s Help Resources: Jira has built-in guides and tutorials—use them if you get stuck.
+
+Jira Setup Questions:
+- Yes, you need to set up Jira before starting your first sprint.
+- You can run Jira in Docker (Jira Software Data Center edition), but most users start with Jira Cloud (hosted by Atlassian) for simplicity.
+- If you want to run Jira locally, you’ll need to download it or use Docker. Jira Cloud is easier for beginners and free for small teams.
+
+Next Steps:
+- Let me know if you want instructions for Jira Cloud or Docker setup.
+- Once Jira is ready, I’ll walk you through your first sprint step-by-step.

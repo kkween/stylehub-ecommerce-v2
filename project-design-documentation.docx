@@ -1,0 +1,32 @@
+MERN Ecommerce Project Design Document
+
+1. Architecture Overview
+- Frontend: React for UI, routing, and state management
+- Backend: Node.js and Express for API and business logic
+- Database: MongoDB for data storage
+- Admin Panel: Separate routes/components for admin features
+
+2. Folder Structure
+- frontend/ : React code (components, pages, assets)
+- backend/ : Express server, routes, controllers, models
+
+3. Key Features
+- User authentication (register, login, change password)
+- Product catalog (listing, details)
+- Shopping cart and checkout
+- Order history
+- Admin dashboard (manage products/orders)
+
+4. API Design
+- RESTful endpoints for products, users, orders, cart
+- Secure endpoints for admin actions
+
+5. UI/UX
+- Responsive design for desktop and mobile
+- Clear navigation and user flows
+
+6. Security
+- Protect sensitive routes
+- Validate user input
+
+Use this document as a reference for your project’s design and structure. No special characters or code changes are included.

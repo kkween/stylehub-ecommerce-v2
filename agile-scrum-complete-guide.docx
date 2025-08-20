@@ -1,0 +1,93 @@
+Agile Scrum Setup and Templates Documentation
+
+1. What Are User Stories?
+A user story is a short, simple description of a feature or requirement from the perspective of the end user. It helps teams understand what to build and why, focusing on user needs.
+Format: As a [type of user], I want [an action] so that [a benefit].
+Examples:
+- As a user I want to register so I can access my account.
+- As a user I want to log in so I can access my dashboard.
+- As a user I want to view products so I can shop.
+- As a user I want to see product details.
+- As a user I want to add products to my cart.
+- As a user I want to checkout and pay.
+- As a user I want to view my past orders.
+- As an admin I want to manage products and orders.
+- As a user I want to change my password.
+
+2. Story Points Meaning
+Story points estimate the relative effort, complexity, and time required for each backlog item. They help teams plan sprints and track progress.
+| Story Points | Meaning                                                      |
+|--------------|-------------------------------------------------------------|
+| 1            | Very easy, quick, or simple task                            |
+| 2–3          | Moderate effort, some complexity, takes more time than a 1  |
+| 5            | Large or complex task, requires significant work            |
+| 8, 13, etc.  | Very large, may need to be broken down                      |
+
+3. Priority Reference
+| Summary           | Priority |
+|-------------------|----------|
+| User Registration | Highest  |
+| User Login        | High     |
+| Product Listing   | High     |
+| Product Details   | High     |
+| Add to Cart       | High     |
+| Checkout          | Highest  |
+| Order History     | High     |
+| Admin Dashboard   | Highest  |
+| Change Password   | Low      |
+
+4. Sprint Steps
+1. Start the Sprint
+   - Click "Start sprint" in Jira to begin work.
+2. Daily Standups
+   - Hold short daily meetings with your team.
+   - Discuss what was done, what’s next, and any blockers.
+   - Update Jira board as tasks move from "To Do" → "In Progress" → "In Review" → "Done."
+3. Work Through the Sprint
+   - Team members pick up tasks, update their status, and collaborate.
+4. Sprint Review
+   - At the end of the sprint, review completed work with your team and stakeholders.
+5. Sprint Retrospective
+   - Discuss what went well, what could be improved, and plan changes for the next sprint.
+6. Repeat
+   - Plan and start the next sprint, continuing the Agile Scrum cycle.
+
+5. Templates
+
+Daily Standup Template
+Date: 
+Sprint: 
+Team Members Present:
+1. What did you do yesterday?
+2. What will you do today?
+3. Any blockers?
+Notes:
+- Keep standups short (15 min max).
+- Focus on progress and blockers.
+- Update Jira board after standup.
+
+Sprint Review Template
+Sprint: 
+Date: 
+Attendees:
+Sprint Goal:
+Completed Work:
+- List completed backlog items
+Demo:
+- Briefly demonstrate completed features
+Feedback:
+- Gather feedback from team and stakeholders
+Next Steps:
+- Identify items for next sprint
+
+Sprint Retrospective Template
+Sprint: 
+Date: 
+Attendees:
+1. What went well?
+2. What could be improved?
+3. What will we try next time?
+Action Items:
+- List agreed improvements for next sprint
+
+Use this document as a comprehensive guide for Agile Scrum setup, planning, and meetings in Jira.

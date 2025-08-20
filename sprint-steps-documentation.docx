@@ -1,0 +1,23 @@
+Agile Scrum Sprint Steps Documentation
+
+1. Start the Sprint
+   - Click "Start sprint" in Jira to begin work.
+
+2. Daily Standups
+   - Hold short daily meetings with your team.
+   - Discuss what was done, what’s next, and any blockers.
+   - Update Jira board as tasks move from "To Do" → "In Progress" → "In Review" → "Done."
+
+3. Work Through the Sprint
+   - Team members pick up tasks, update their status, and collaborate.
+
+4. Sprint Review
+   - At the end of the sprint, review completed work with your team and stakeholders.
+
+5. Sprint Retrospective
+   - Discuss what went well, what could be improved, and plan changes for the next sprint.
+
+6. Repeat
+   - Plan and start the next sprint, continuing the Agile Scrum cycle.
+
+Use these steps as a reference for running sprints in Jira.

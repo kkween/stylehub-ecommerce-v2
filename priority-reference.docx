@@ -1,0 +1,15 @@
+Priority Reference for Backlog Items
+
+| Summary           | Priority |
+|-------------------|----------|
+| User Registration | Highest  |
+| User Login        | High     |
+| Product Listing   | High     |
+| Product Details   | High     |
+| Add to Cart       | High     |
+| Checkout          | Highest  |
+| Order History     | High     |
+| Admin Dashboard   | Highest  |
+| Change Password   | Low      |
+
+Use these values when entering priorities for each backlog item in Jira.

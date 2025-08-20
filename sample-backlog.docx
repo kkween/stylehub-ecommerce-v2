@@ -1,0 +1,13 @@
+Ecommerce MERN Project Backlog
+
+| Summary           | Description                                              | Type   | Priority | Story Points |
+|-------------------|---------------------------------------------------------|--------|----------|--------------|
+| User Registration | As a user I want to register so I can access my account | Story  | High     | 3            |
+| User Login        | As a user I want to log in so I can access my dashboard | Story  | High     | 2            |
+| Product Listing   | As a user I want to view products so I can shop         | Story  | High     | 5            |
+| Product Details   | As a user I want to see product details                 | Story  | Medium   | 3            |
+| Add to Cart       | As a user I want to add products to my cart             | Story  | High     | 3            |
+| Checkout          | As a user I want to checkout and pay                    | Story  | High     | 5            |
+| Order History     | As a user I want to view my past orders                 | Story  | Medium   | 2            |
+| Admin Dashboard   | As an admin I want to manage products and orders        | Story  | High     | 5            |
+| Change Password   | As a user I want to change my password                  | Story  | Low      | 2            |

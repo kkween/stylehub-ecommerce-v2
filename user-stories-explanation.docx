@@ -1,0 +1,19 @@
+What Are User Stories in Agile Scrum?
+
+A user story is a short, simple description of a feature or requirement from the perspective of the end user. It helps teams understand what to build and why, focusing on user needs.
+
+Typical user story format:
+As a [type of user], I want [an action] so that [a benefit].
+
+Examples from your backlog:
+- As a user I want to register so I can access my account.
+- As a user I want to log in so I can access my dashboard.
+- As a user I want to view products so I can shop.
+- As a user I want to see product details.
+- As a user I want to add products to my cart.
+- As a user I want to checkout and pay.
+- As a user I want to view my past orders.
+- As an admin I want to manage products and orders.
+- As a user I want to change my password.
+
+User stories guide development, help with planning, and keep the team focused on delivering value to users.

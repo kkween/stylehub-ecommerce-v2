@@ -1,0 +1,15 @@
+Story Points Reference for Backlog Items
+
+| Summary           | Story Points |
+|-------------------|--------------|
+| User Registration | 3            |
+| User Login        | 2            |
+| Product Listing   | 5            |
+| Product Details   | 3            |
+| Add to Cart       | 3            |
+| Checkout          | 5            |
+| Order History     | 2            |
+| Admin Dashboard   | 5            |
+| Change Password   | 2            |
+
+Use these values when entering story points for each backlog item in Jira.

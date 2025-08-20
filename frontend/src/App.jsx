@@ -200,15 +200,15 @@ const HeroCarousel = ({ setSidebarOpen }) => {
   
   const slides = [
     {
-      image: '/hero1.jpg',
-      title: 'Winter Collection 2025',
-      subtitle: 'Embrace the Season in Style',
-      description: 'Discover our premium winter collection featuring the latest trends and timeless classics.',
-      buttonText: 'Shop Winter Collection',
-      buttonLink: '/shop?category=winter'
+          image: '/hero6.jpg',
+          title: 'Winter Collection 2025',
+          subtitle: 'Embrace the Season in Style',
+          description: 'Discover our premium winter collection featuring the latest trends and timeless classics.',
+          buttonText: 'Shop Winter Collection',
+          buttonLink: '/shop?category=winter'
     },
-    {
-      image: '/hero2.jpg',
+        {
+          image: '/hero1.jpg',
       title: 'New Arrivals',
       subtitle: 'Fresh Fashion Forward',
       description: 'Check out our newest arrivals that blend comfort with contemporary design.',
@@ -260,7 +260,7 @@ const HeroCarousel = ({ setSidebarOpen }) => {
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <img 
+          <img
             src={slide.image} 
             alt={slide.title}
             className="w-full h-full object-cover"
@@ -311,20 +311,43 @@ const Shop = ({ addToCart, sidebarOpen, setSidebarOpen }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/products');
-        setProducts(response.data);
-        setError(null);
-      } catch (err) {
-        console.error('Error fetching products:', err);
-        setError('Failed to load products. Please make sure the server is running.');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProducts();
+    // Mock more products to match the number of images
+    const productImages = [
+      '/assets/restaurant-blk-family.jpg',
+      '/assets/tennis-blk-wm2.jpg',
+      '/assets/tennis-blk-wm3.jpg',
+      '/assets/tennis-blk-wm5.jpg',
+      '/assets/tennis-blk-wm6.jpg',
+      '/assets/tennise-blk-wm.jpg',
+      '/assets/library-blkwm1.jpg',
+      '/assets/library-blkwm2.jpg',
+      '/assets/library-blkwm3.webp',
+      '/assets/library-blkwm4.webp',
+      '/assets/library-blkwm5.jpg',
+      '/assets/library.png',
+      '/assets/product2-1.jpg',
+      '/assets/product2-2.jpg',
+      '/assets/product2-3.jpg',
+      '/assets/product2-4.jpg',
+      '/assets/product2-5.jpg',
+      '/assets/product2-6.jpg',
+      '/assets/product2-7.jpg',
+      '/assets/product2-8.jpg',
+      '/assets/product2-9.jpg',
+      '/assets/product2-10.jpg',
+      '/assets/product2-11.jpg',
+      '/assets/product2-12.jpg',
+    ];
+    const mockProducts = productImages.map((img, idx) => ({
+      _id: `mock-${idx+1}`,
+      name: `Product ${idx+1}`,
+      description: `Description for product ${idx+1}`,
+      price: 19.99 + idx,
+      category: 'Mock',
+    }));
+    setProducts(mockProducts);
+    setLoading(false);
+    setError(null);
   }, []);
 
   if (loading) {
@@ -359,97 +382,70 @@ const Shop = ({ addToCart, sidebarOpen, setSidebarOpen }) => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3 sm:gap-4 justify-items-stretch">
-          {products.map((product) => (
-            <div key={product._id} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group h-fit">
-              <div className="bg-gray-200 overflow-hidden relative">
-                 <img 
-                   src={`https://picsum.photos/400/400?random=${product._id}`}
-                   alt={product.name} 
-                   loading="lazy"
-                   className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
-                 />
-                <div className="absolute top-1 right-1 sm:top-2 sm:right-2">
-                  <span className="bg-indigo-600 text-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full text-xs font-medium">
-                    {product.category}
-                  </span>
+          {(() => {
+            const productImages = [
+              '/assets/restaurant-blk-family.jpg',
+              '/assets/tennis-blk-wm2.jpg',
+              '/assets/tennis-blk-wm3.jpg',
+              '/assets/tennis-blk-wm5.jpg',
+              '/assets/tennis-blk-wm6.jpg',
+              '/assets/tennise-blk-wm.jpg',
+              '/assets/library-blkwm1.jpg',
+              '/assets/library-blkwm2.jpg',
+              '/assets/library-blkwm3.webp',
+              '/assets/library-blkwm4.webp',
+              '/assets/library-blkwm5.jpg',
+              '/assets/library.png',
+              '/assets/product2-1.jpg',
+              '/assets/product2-2.jpg',
+              '/assets/product2-3.jpg',
+              '/assets/product2-4.jpg',
+              '/assets/product2-5.jpg',
+              '/assets/product2-6.jpg',
+              '/assets/product2-7.jpg',
+              '/assets/product2-8.jpg',
+              '/assets/product2-9.jpg',
+              '/assets/product2-10.jpg',
+              '/assets/product2-11.jpg',
+              '/assets/product2-12.jpg',
+            ];
+            return products
+              .map((product, idx) => ({ product, idx }))
+              .filter(({ idx }) => productImages[idx % productImages.length].startsWith('/assets/'))
+              .map(({ product, idx }) => (
+                <div key={product._id} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group h-fit">
+                  <div className="bg-gray-200 overflow-hidden relative">
+                    <img 
+                      src={productImages[idx % productImages.length]}
+                      alt={product.name} 
+                      loading="lazy"
+                      className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-1 right-1 sm:top-2 sm:right-2">
+                      <span className="bg-indigo-600 text-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full text-xs font-medium">
+                        {product.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3">
+                    <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">{product.name}</h3>
+                    <p className="text-gray-600 text-xs mb-2 line-clamp-1">{product.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm sm:text-lg font-bold text-indigo-600">${product.price.toFixed(2)}</span>
+                      <button 
+                        onClick={() => addToCart(product)} 
+                        className="bg-indigo-600 hover:bg-indigo-700 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-medium transition-colors flex items-center space-x-1 group"
+                      >
+                        <svg className="w-3 h-3 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h10" />
+                        </svg>
+                        <span className="hidden lg:inline">Add</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="p-2 sm:p-3">
-                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">{product.name}</h3>
-                <p className="text-gray-600 text-xs mb-2 line-clamp-1">{product.description}</p>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-sm sm:text-lg font-bold text-indigo-600">${product.price}</span>
-                  <button 
-                    onClick={() => addToCart(product)} 
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-medium transition-colors flex items-center space-x-1 group"
-                  >
-                    <svg className="w-3 h-3 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h10" />
-                    </svg>
-                    <span className="hidden lg:inline">Add</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-          {[...Array(12)].map((_, i) => (
-            <div key={`static-card-${i}`} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group h-fit">
-              <div className="bg-gray-200 overflow-hidden relative">
-                <img 
-                  src={`https://picsum.photos/400/400?random=static${i+1}`}
-                  alt={`Static ${i+1}`}
-                  loading="lazy"
-                  className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-2 sm:p-3">
-                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Sample Card {i+1}</h3>
-                <p className="text-gray-600 text-xs mb-2 line-clamp-1">This is a sample static card.</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm sm:text-lg font-bold text-indigo-600">$19.99</span>
-                  <button 
-                    onClick={() => addToCart({ _id: `static-card-${i}`, name: `Sample Card ${i+1}`, price: 19.99 })} 
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-medium transition-colors flex items-center space-x-1 group"
-                  >
-                    <svg className="w-3 h-3 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h10" />
-                    </svg>
-                    <span className="hidden lg:inline">Add</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-          {[...Array(6)].map((_, i) => (
-            <div key={`extra-static-card-${i}`} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group h-fit">
-              <div className="bg-gray-200 overflow-hidden relative">
-                <img 
-                  src={`https://picsum.photos/400/400?random=extra${i+1}`}
-                  alt={`Extra Static ${i+1}`}
-                  loading="lazy"
-                  className="w-full h-32 sm:h-40 lg:h-48 xl:h-52 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-2 sm:p-3">
-                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Extra Card {i+1}</h3>
-                <p className="text-gray-600 text-xs mb-2 line-clamp-1">This is an extra static card.</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm sm:text-lg font-bold text-indigo-600">$19.99</span>
-                  <button 
-                    onClick={() => addToCart({ _id: `extra-static-card-${i}`, name: `Extra Card ${i+1}`, price: 19.99 })} 
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-medium transition-colors flex items-center space-x-1 group"
-                  >
-                    <svg className="w-3 h-3 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h10" />
-                    </svg>
-                    <span className="hidden lg:inline">Add</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+              ));
+          })()}
         </div>
 
         {products.length === 0 && !loading && (
@@ -1520,7 +1516,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="w-full min-h-screen bg-gray-50 flex flex-col overflow-x-hidden">
+      <div className="w-full min-h-screen bg-gray-50 flex flex-col">
         <Header user={user} setUser={setUser} cartItemCount={cartItemCount} />
         <TransparentNavbar />
         <main className="flex-grow w-full">
