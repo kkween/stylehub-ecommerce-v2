@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ChangePassword from "./ChangePassword";
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+const apiUrl = import.meta.env.VITE_API_URL;
 import './App.css';
 
 // Header Component
@@ -555,7 +556,7 @@ const Cart = ({ cart, setCart, user }) => {
           deliveryDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
         };
 
-        const response = await axios.post('http://localhost:5000/api/orders', order, {
+  const response = await axios.post(`${apiUrl}/api/orders`, order, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         
@@ -1212,7 +1213,7 @@ const Auth = ({ setUser }) => {
 
     try {
       const endpoint = isSignUp ? '/api/auth/signup' : '/api/auth/signin';
-      const response = await axios.post(`http://localhost:5000${endpoint}`, {
+  const response = await axios.post(`${apiUrl}${endpoint}`, {
         email,
         password,
         name: isSignUp ? name : undefined,
@@ -1465,7 +1466,7 @@ const App = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.get('http://localhost:5000/api/auth/me', {
+  axios.get(`${apiUrl}/api/auth/me`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((response) => setUser({ 
@@ -1483,7 +1484,7 @@ const App = () => {
   useEffect(() => {
     if (user) {
       // Fetch orders
-      axios.get('http://localhost:5000/api/orders', {
+  axios.get(`${apiUrl}/api/orders`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
         .then((response) => setOrders(response.data))
@@ -1491,7 +1492,7 @@ const App = () => {
 
       // Fetch customers if admin
       if (user.role === 'admin') {
-        axios.get('http://localhost:5000/api/users', {
+  axios.get(`${apiUrl}/api/users`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         })
           .then((response) => setCustomers(response.data))
