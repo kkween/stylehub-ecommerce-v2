@@ -1,0 +1,34 @@
+# What is CI/CD and What Does ci.yml Do?
+
+## CI/CD Explained
+
+- **Continuous Integration (CI):**
+  - Automatically runs tests and checks on new code to catch errors early and keep the codebase healthy.
+  - Developers push code to a shared repository, and automated workflows validate the code.
+
+- **Continuous Deployment/Delivery (CD):**
+  - Automatically deploys code to production or staging after it passes all checks.
+  - Ensures new features and fixes go live quickly and safely.
+
+## What is ci.yml?
+
+- `ci.yml` is a workflow configuration file for GitHub Actions.
+- It tells GitHub how to automatically check your code every time you push or open a pull request.
+- It automates tasks like:
+  - Installing dependencies
+  - Running tests
+  - Running lint checks
+  - Building your project
+  - Deploying code (if configured)
+
+## How is ci.yml Similar to Jenkins?
+
+- Both automate CI/CD tasks (testing, building, deploying).
+- Jenkins is a standalone tool you install and configure.
+- GitHub Actions (using `ci.yml`) is built into GitHub and easier to set up for most projects.
+
+## Summary
+
+- `ci.yml` automates code checks and can automate deployment.
+- GitHub Actions and Jenkins both provide CI/CD, but GitHub Actions is integrated with GitHub.
+- CI/CD helps teams deliver high-quality code faster and with fewer errors.
