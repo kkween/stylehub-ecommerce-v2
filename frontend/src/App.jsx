@@ -242,7 +242,7 @@ const HeroCarousel = ({ setSidebarOpen }) => {
   };
 
   return (
-  <section className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden">
+  <section className="relative w-full h-[480px] sm:h-[540px] lg:h-[600px] overflow-hidden">
       {/* Mobile Sidebar Toggle Button */}
       <button
         onClick={() => setSidebarOpen(true)}
@@ -1521,7 +1521,8 @@ const App = () => {
         <Header user={user} setUser={setUser} cartItemCount={cartItemCount} />
         <TransparentNavbar />
         <main className="flex-grow w-full">
-          <Routes>
+          <div className="max-w-[1440px] mx-auto w-full px-4">
+            <Routes>
             <Route
               path="/"
               element={
@@ -1669,7 +1670,8 @@ const App = () => {
                 </div>
               </div>
             } />
-          </Routes>
+            </Routes>
+          </div>
         </main>
         <Footer />
       </div>
